@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SimpleFactory.ConcretePassagem;
+using SimpleFactory.Creator;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleFactory
+namespace SimpleFactory.ConcretePassageiro
 {
     public class PassageiroPrincipal : Passageiro, IPassageiroPrincipal
     {

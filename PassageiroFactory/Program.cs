@@ -1,5 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SimpleFactory.ConcreteCreator;
+using SimpleFactory.ConcretePassageiro;
+using SimpleFactory.ConcretePassageiro.Enum;
+using SimpleFactory.ConcretePassagem;
+using SimpleFactory.DTO;
+using System;
 
 namespace SimpleFactory
 {
@@ -7,6 +11,8 @@ namespace SimpleFactory
     {
         static void Main(string[] args)
         {
+
+            // SIMULANDO O RECEBIMENTO DE UM JSON DE UM BFF
 
             CriarPassagemDTO agencia = new CriarPassagemDTO();
 
@@ -44,7 +50,10 @@ namespace SimpleFactory
             agencia.Especial[0].Parentesco = "Filho";
 
 
-            var passageiroPrincipal = (PassageiroPrincipal)PassageiroFactory.CriarPassageiro('T');
+            // USANDO O FACTORY PASSAGEIRO PARA INSTANCIAR E POVOAR A INSTÂNCIA PELO MÉTODO
+            // PORQUE AS CLASSES POSSUEM O MÉTODO SET PRIVADO
+
+            var passageiroPrincipal = (PassageiroPrincipal)PassageiroFactory.CriarPassageiro(PassageiroEnum.Principal);
             passageiroPrincipal.AtribuirValores(
                 agencia.Nome,
                 agencia.Nascimento,
@@ -57,41 +66,41 @@ namespace SimpleFactory
                 agencia.Principal.Telefone              
                 );
 
-            var passagemPrincipal = (PassagemPrincipal)PassagemFactory.CriarPassagem('T');
+            var passagemPrincipal = (PassagemPrincipal)PassagemFactory.CriarPassagem(PassageiroEnum.Principal);
             passagemPrincipal.AtribuirValores(passageiroPrincipal);
 
-            // aqui eu gravaria no banco
+            // AQUI, GRAVAMOS NO BANCO
 
 
 
             if (agencia.Acompanhante != null)
             {
-                var passageiroAcompanhante = (PassageiroAcompanhante)PassageiroFactory.CriarPassageiro('A');
+                var passageiroAcompanhante = (PassageiroAcompanhante)PassageiroFactory.CriarPassageiro(PassageiroEnum.Acompanhante);
 
                 var listaPassageiroAcompanhante = passageiroAcompanhante.AtribuirValores(agencia);
 
                 foreach (var listaAcompanhante in listaPassageiroAcompanhante)
                 {
-                    var passagemAcompanhante = (PassagemAcompanhante)PassagemFactory.CriarPassagem('A');
+                    var passagemAcompanhante = (PassagemAcompanhante)PassagemFactory.CriarPassagem(PassageiroEnum.Acompanhante);
                     passagemAcompanhante.AtribuirValores(listaAcompanhante);
 
-                    // aqui eu gravo no banco
+                    // AQUI, GRAVAMOS NO BANCO
                 }
             }
 
 
             if (agencia.Especial != null)
             {
-                var passageiroEspecial = (PassageiroEspecial)PassageiroFactory.CriarPassageiro('E');
+                var passageiroEspecial = (PassageiroEspecial)PassageiroFactory.CriarPassageiro(PassageiroEnum.Especial);
 
                 var listaPassageiroEspecial = passageiroEspecial.AtribuirValores(agencia);
 
                 foreach (var listaEspecial in listaPassageiroEspecial)
                 {
-                    var passagemEspecial = (PassagemEspecial)PassagemFactory.CriarPassagem('E');
+                    var passagemEspecial = (PassagemEspecial)PassagemFactory.CriarPassagem(PassageiroEnum.Especial);
                     passagemEspecial.AtribuirValores(listaEspecial);
 
-                    // aqui eu gravo no banco
+                    // AQUI GRAVAMOS NO BANCO
                 }
             }
         }

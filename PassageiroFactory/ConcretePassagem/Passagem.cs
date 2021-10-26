@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SimpleFactory.ConcretePassageiro;
+using System;
 
-namespace SimpleFactory
+namespace SimpleFactory.ConcretePassagem
 {
     public class Passagem
     {

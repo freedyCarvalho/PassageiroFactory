@@ -1,8 +1,8 @@
-﻿using System;
+﻿using SimpleFactory.Creator;
+using SimpleFactory.DTO;
 using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleFactory
+namespace SimpleFactory.ConcretePassageiro
 {
     public class PassageiroAcompanhante : Passageiro, IPassageiroAcompanhante
     {

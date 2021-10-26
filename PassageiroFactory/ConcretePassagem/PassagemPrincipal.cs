@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SimpleFactory.ConcretePassageiro;
+using SimpleFactory.Creator;
 
-namespace SimpleFactory
+namespace SimpleFactory.ConcretePassagem
 {
-    public class PassagemPrincipal : Passagem, IPassageiroPrincipal
+    public class PassagemPrincipal : Passagem, IPassagemPrincipal
     {
         public PassagemPrincipal()
         {

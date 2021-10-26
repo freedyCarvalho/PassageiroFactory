@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleFactory
+namespace SimpleFactory.ConcretePassageiro
 {
     public abstract class Passageiro
     {

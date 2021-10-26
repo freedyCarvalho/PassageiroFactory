@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleFactory
+namespace SimpleFactory.DTO
 {
     public class CriarPassagemDTO
     {

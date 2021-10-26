@@ -1,8 +1,8 @@
-﻿using System;
+﻿using SimpleFactory.ConcretePassageiro;
+using SimpleFactory.DTO;
 using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleFactory
+namespace SimpleFactory.Creator
 {
     public interface IPassageiroEspecial
     {
